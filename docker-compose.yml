@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  hadikontroller:
+    build:
+      dockerfile: Dockerfile
+    devices:
+      - "/dev/serial/by-id/usb-Arduino_LLC_Arduino_Nano_Every_002E6744515146544D4C2020FF113015-if00:/dev/ttyhadikontroller"
+    secrets:
+      - hadikontroller_telegram_token
+      - hadikontroller_telegram_chatid
+      - hadikontroller_ping_command
+    network_mode: host
+
+secrets:
+  hadikontroller_telegram_token:
+    file: ./hadikontroller_telegram_token.txt
+  hadikontroller_telegram_chatid:
+    file: ./hadikontroller_telegram_chatid.txt
+  hadikontroller_ping_command:
+    file: ./hadikontroller_ping_command.txt
