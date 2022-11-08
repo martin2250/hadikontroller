@@ -10,6 +10,7 @@
 // 9: pwm16, LED (high power)
 // 10: pwm16, LED strip
 // 3: pwm8, fan
+// 18: MOSFET for LED relay
 // A0: temp LED
 // A1: temp (reserved)
 // A1: temp (reserved)
@@ -33,6 +34,9 @@ void setup()
 	// LED
 	pinMode(LED_BUILTIN, OUTPUT);
 
+	// LED relay
+	pinMode(18, OUTPUT);
+
 	// temperature inputs failsafe
 	pinMode(A0, INPUT_PULLUP);
 	pinMode(A1, INPUT_PULLUP);
@@ -43,6 +47,7 @@ void setup()
 
 	Serial.begin(115200);
 	Serial.println("start");
+	delay(10);
 }
 
 void loop()
